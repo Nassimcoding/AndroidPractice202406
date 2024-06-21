@@ -21,6 +21,7 @@ import androidx.compose.material3.DismissState
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -31,10 +32,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.day5.ui.theme.Day5Theme
 
 class MainActivity : ComponentActivity() {
@@ -120,6 +125,12 @@ fun UnitConverter(name: String, modifier: Modifier = Modifier){
     var DropDownControl1 by remember { mutableStateOf(false) }
     var DropDownControl2 by remember { mutableStateOf(false) }
 
+    // text custon style
+    val custionTextStyle = TextStyle(
+        fontFamily = FontFamily.Monospace,
+        color = Color.Blue,
+        fontSize = 30.sp
+    )
 
 
     Column(
@@ -131,9 +142,13 @@ fun UnitConverter(name: String, modifier: Modifier = Modifier){
 //            text = "hello  ",
 //            modifier = modifier
 //        )
+        Text(text = "custon text style",
+            style = custionTextStyle);
 
         //input title
-        Text(text = "this is test content");
+        Text(text = "this is test content",
+            style = MaterialTheme.typography.headlineMedium);
+
         Spacer(modifier = Modifier.height(16.dp))
         //input text box
         OutlinedTextField (
